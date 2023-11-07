@@ -1,13 +1,3 @@
-@font-face {
-    font-family: 'MPLUS1';
-    src: url("/fonts/MPLUS1-Regular.ttf");
-}
-
-body {
-    font-family: "MPLUS1", serif;
-    overflow: hidden;
-}
-
 #root {
     max-width: 1280px;
     margin: 0;
