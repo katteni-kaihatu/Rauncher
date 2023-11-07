@@ -1,11 +1,27 @@
 import './style/App.css'
-import {version} from '../package.json'
+import {Box, Button, Container, TextField} from "@mui/material";
+import React from "react";
 
 function App() {
 
+  const buttonHandler = () => {
+    window.api.invoke("openDialog", "test")
+  }
+
+  const launchHandler = () => {
+    window.api.invoke("launchResonite")
+  }
+
   return (
     <>
-      <h1>{version}</h1>
+      <Container>
+        <Box>
+          <TextField size={"small"} variant="outlined" />
+          <Button variant={"outlined"} onClick={buttonHandler}>Test Button</Button>
+        </Box>
+
+        <Button variant={"contained"} size={"large"} onClick={launchHandler}>起動</Button>
+      </Container>
     </>
   )
 }

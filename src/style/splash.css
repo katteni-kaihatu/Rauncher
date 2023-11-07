@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .splash {
     background-color: #5374ff;
     width: 100vw;

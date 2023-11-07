@@ -4,6 +4,7 @@ import {autoUpdater} from "electron-updater"
 import {SplashWindow} from "./window/splash.ts";
 import {MainWindow} from "./window/mainWindow.ts";
 import {registerUpdateEvent} from "./updater.ts";
+import {registerIpcHandler} from "./ipcHandler";
 
 // The built directory structure
 //
@@ -37,7 +38,7 @@ const launchMain = () => {
   win = new MainWindow()
 }
 app.whenReady().then(async () => {
-
+  registerIpcHandler()
   splash = new SplashWindow()
 
   setTimeout(async () => {

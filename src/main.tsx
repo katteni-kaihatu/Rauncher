@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import './style/index.css'
 import Splash from "./Splash.tsx";
 
 const splash = new URLSearchParams(window.location.search.slice(1)).has("splash")
