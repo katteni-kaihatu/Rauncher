@@ -1,7 +1,7 @@
 {
   "name": "Rauncher",
   "private": true,
-  "version": "0.0.11",
+  "version": "0.0.12",
   "scripts": {
     "patch": "npm run build && npm version patch",
     "minor": "npm version minor",
