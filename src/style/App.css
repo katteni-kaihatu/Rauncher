@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'MPLUS1';
+    src: url("/fonts/MPLUS1-Regular.ttf");
+}
+
 body {
     overflow: hidden;
+    font-family: "MPLUS1";
 }
 
 #root {
