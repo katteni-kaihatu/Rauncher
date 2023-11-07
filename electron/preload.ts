@@ -1,7 +1,17 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import {contextBridge, ipcRenderer} from 'electron'
 
 // --------- Expose some API to the Renderer process ---------
 contextBridge.exposeInMainWorld('ipcRenderer', withPrototype(ipcRenderer))
+
+contextBridge.exposeInMainWorld("api", {
+  invoke: (channel: string, args: any) => {
+    return ipcRenderer.invoke(channel, args);
+  },
+  on: (channel: any, func: any) => { // メインプロセスからの受信用
+    ipcRenderer.on(channel, (event, ...args) => func(...args));
+  }
+});
+
 
 // `exposeInMainWorld` can't detect attributes and methods of `prototype`, manually patching it.
 function withPrototype(obj: Record<string, any>) {
@@ -107,7 +117,7 @@ function useLoading() {
 
 // ----------------------------------------------------------------------
 
-const { appendLoading, removeLoading } = useLoading()
+const {appendLoading, removeLoading} = useLoading()
 domReady().then(appendLoading)
 
 window.onmessage = ev => {

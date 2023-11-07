@@ -2,13 +2,22 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import Splash from "./Splash.tsx";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
-
+const splash = new URLSearchParams(window.location.search.slice(1)).has("splash")
+if(splash) {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <Splash/>
+    </React.StrictMode>,
+  )
+} else {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <App/>
+    </React.StrictMode>,
+  )
+}
 // Remove Preload scripts loading
 postMessage({ payload: 'removeLoading' }, '*')
 
