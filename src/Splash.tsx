@@ -14,7 +14,7 @@ function Splash() {
     <>
       <div className="splash">
         <img className="splashImg" src={splashImg}/>
-        <div className="slpashMessage">{status}</div>
+        <div className="splashMessage">{status}</div>
       </div>
     </>
   )

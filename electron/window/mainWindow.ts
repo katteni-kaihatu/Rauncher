@@ -14,6 +14,13 @@ export class MainWindow {
 
     this.window = new BrowserWindow({
       icon: path.join(process.env.VITE_PUBLIC, 'logo-512.png'),
+      autoHideMenuBar: true,
+      maxWidth: 920,
+      maxHeight: 600,
+      width: 920,
+      minWidth: 500,
+      height: 600,
+      minHeight: 400,
       webPreferences: {
         preload: path.join(__dirname, '../dist-electron/preload.js'),
         nodeIntegration: false,
