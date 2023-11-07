@@ -21,9 +21,9 @@ export class MainWindow {
       },
     })
 
-    // Test active push message to Renderer-process.
+
     this.window.webContents.on('did-finish-load', () => {
-      this.window?.webContents.send('main-process-message', (new Date).toLocaleString())
+      this.window?.webContents.send('log', "loaded")
     })
 
     if (VITE_DEV_SERVER_URL) {

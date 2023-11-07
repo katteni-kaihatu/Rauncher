@@ -23,11 +23,6 @@ export const registerUpdateEvent = () => {
     // mainWindow.log('Error in auto-updater. ' + err);
   })
   autoUpdater.on('download-progress', (progressObj) => {
-    // let log_message = "Download speed: " + progressObj.bytesPerSecond;
-    // log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-    // log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-    // mainWindow.log(log_message);
-
     splash?.window.webContents.send("status", `ダウンロード中 ${Math.floor(progressObj.percent * 10) / 10}%`)
   })
   autoUpdater.on('update-downloaded', (info) => {

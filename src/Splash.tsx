@@ -1,5 +1,5 @@
-import './App.css'
-import "./splash.css"
+import './style/App.css'
+import "./style/splash.css"
 import {useState} from "react";
 import splashImg from "./assets/splash.png"
 

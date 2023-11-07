@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import './index.css'
+import './style/index.css'
 import Splash from "./Splash.tsx";
 
 const splash = new URLSearchParams(window.location.search.slice(1)).has("splash")
@@ -24,4 +24,9 @@ postMessage({ payload: 'removeLoading' }, '*')
 // Use contextBridge
 window.ipcRenderer.on('main-process-message', (_event, message) => {
   console.log(message)
+})
+
+// Logger from Main Process
+window.api.on("log", (args: any) => {
+  console.log("[MAIN LOG]", ...args)
 })
