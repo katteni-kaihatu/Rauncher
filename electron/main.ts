@@ -21,9 +21,6 @@ process.env.VITE_PUBLIC = app.isPackaged ? process.env.DIST : path.join(process.
 let win: MainWindow | null
 let splash: SplashWindow | null
 
-// 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
-
-
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
@@ -31,6 +28,7 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
     win = null
+    splash = null
   }
 })
 

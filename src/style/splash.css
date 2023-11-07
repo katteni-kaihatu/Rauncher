@@ -1,11 +1,12 @@
 .splash {
-    background-color: coral;
+    background-color: #5374ff;
     width: 100vw;
     height: 100vh;
     -webkit-app-region: drag;
 }
 
 .splashImg {
+    animation: rotate 2s linear infinite;
     width: 100%;
     -webkit-app-region: drag;
 }

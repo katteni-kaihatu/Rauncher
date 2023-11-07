@@ -1,7 +1,7 @@
 import './style/App.css'
 import "./style/splash.css"
 import {useState} from "react";
-import splashImg from "./assets/splash.png"
+import splashImg from "./assets/logo-512-nobg.png"
 
 function Splash() {
   const [status, setStatus] = useState("Loading...")
