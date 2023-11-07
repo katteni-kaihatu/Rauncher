@@ -4,8 +4,8 @@
 }
 
 body {
+    font-family: "MPLUS1", serif;
     overflow: hidden;
-    font-family: "MPLUS1";
 }
 
 #root {
