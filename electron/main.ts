@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 import path from 'node:path'
+import {autoUpdater} from "electron-updater"
 
 // The built directory structure
 //
@@ -57,4 +58,7 @@ app.on('activate', () => {
   }
 })
 
-app.whenReady().then(createWindow)
+app.whenReady().then(async () => {
+  await autoUpdater.checkForUpdatesAndNotify()
+  createWindow()
+})
