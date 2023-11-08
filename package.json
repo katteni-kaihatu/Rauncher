@@ -9,7 +9,8 @@
     "build": "tsc && vite build && electron-builder",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "publish": "electron-builder -p always"
+    "publish": "electron-builder -p always",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -19,6 +20,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/ps-tree": "^1.1.5",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
@@ -26,10 +28,12 @@
     "@vitejs/plugin-react": "^4.0.4",
     "electron": "^26.1.0",
     "electron-builder": "^24.6.4",
+    "electron-rebuild": "^3.2.9",
     "electron-updater": "^6.1.4",
     "eslint": "^8.48.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "ps-tree": "^1.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-electron": "^0.14.0",
@@ -37,6 +41,6 @@
   },
   "main": "dist-electron/main.js",
   "volta": {
-    "node": "20.9.0"
+    "node": "18.16.1"
   }
 }

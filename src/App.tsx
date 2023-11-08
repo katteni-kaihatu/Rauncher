@@ -12,6 +12,10 @@ function App() {
     window.api.invoke("launchResonite")
   }
 
+  const closeHandler = () => {
+    window.api.invoke("closeResonite")
+  }
+
   return (
     <>
       <Container>
@@ -21,6 +25,7 @@ function App() {
         </Box>
 
         <Button variant={"contained"} size={"large"} onClick={launchHandler}>起動</Button>
+        <Button variant={"contained"} size={"large"} onClick={closeHandler}>終了</Button>
       </Container>
     </>
   )

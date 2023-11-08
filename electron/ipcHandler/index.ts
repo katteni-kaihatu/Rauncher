@@ -1,6 +1,10 @@
 import {app, ipcMain, dialog} from "electron";
 import {win} from "../main.ts";
 import {exec} from "child_process";
+import psTree from "ps-tree";
+import * as child_process from "child_process";
+
+const WM_CLOSE = 0x0010;
 
 const registerIpcHandler = () => {
   ipcMain.handle("test", (event, args) => {
@@ -35,14 +39,35 @@ const registerIpcHandler = () => {
     return app.getVersion()
   })
 
+  let process: child_process.ChildProcess | null = null
+
   ipcMain.handle("launchResonite", (event, args) => {
     console.log("launchResonite")
-    exec("\"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Resonite\\Resonite.exe\" -Screen -DoNotAutoLoadHome -ResetDash -SkipIntroTutorial -DataPath \"C:\\Data_Path\"", {cwd: "C:\\Data_Path"}, (err, stdout, stderr) => {
+    process =  exec("\"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Resonite\\Resonite.exe\" -Screen -DoNotAutoLoadHome -ResetDash -SkipIntroTutorial -DataPath \"C:\\Data_Path\"", {cwd: "C:\\Data_Path"}, (err, stdout, stderr) => {
       if (err) {
         console.log(err)
         return
       }
       console.log(stdout)
+    })
+
+  })
+
+  ipcMain.handle("closeResonite", (event, args) => {
+    if(!process?.pid) return
+    psTree(process?.pid, (err, children) => {
+      console.log(children)
+      children.forEach((child) => {
+        console.log(child.PID, child.COMMAND, child.PPID, child.STAT)
+        // if(typeof child.PID !== "number") return
+          global.process.kill(Number(child.PID), "SIGTERM")
+        // const hwnd = findWindowByPid(Number(child.PID))
+        // if (hwnd) {
+        //   user32.SendMessageA(hwnd, WM_CLOSE, 0, 0);
+        // } else {
+        //   global.process.kill(Number(child.PID), "SIGINT")
+        // }
+      })
     })
   })
 }

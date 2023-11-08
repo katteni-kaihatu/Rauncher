@@ -6,6 +6,7 @@ import {MainWindow} from "./window/mainWindow.ts";
 import {registerUpdateEvent} from "./updater.ts";
 import {registerIpcHandler} from "./ipcHandler";
 
+
 // The built directory structure
 //
 // ├─┬─┬ dist
