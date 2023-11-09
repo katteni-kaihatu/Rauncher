@@ -1,48 +1,86 @@
-import {Button, Checkbox, Container, FormControlLabel, TextField, Typography} from "@mui/material";
+import {Box, Button, Checkbox, Container, FormControlLabel, Paper, TextField, Typography} from "@mui/material";
 
 
 const LaunchSettings = () => {
     return (
-        <Container sx={{overflowY: "scroll", height: "calc(100vh - 48px)"}}>
-            <h1>Launch Settings</h1>
-            <Typography>datapath</Typography>
+        <Container sx={{overflowY: "scroll", height: "calc(100vh - 48px)", paddingTop: "0.5em", paddingBottom: "100px"}}>
+            <Box sx={{display:"flex", flexDirection: "column", gap:"0.5em"}}>
 
-            <TextField size={"small"} variant="outlined" label={"DataPath"} />
-            <Button variant={"outlined"}>選択</Button>
+                <Paper sx={{padding: "1em"}}>
+                    <Typography variant={"h6"}>Data path</Typography>
+                    <Typography gutterBottom>Resoniteの管理データを保存する場所を指定します。</Typography>
 
-            <Typography>logspath</Typography>
-            <TextField size={"small"} variant="outlined" label={"DataPath"} />
-            <Button variant={"outlined"}>選択</Button>
+                    <Box sx={{display: "flex", gap: "1em", alignItems: "center"}}>
+                        <TextField size={"small"} variant="outlined" label={"path"} sx={{flexGrow: 1}}/>
+                        <Button variant={"outlined"}>選択</Button>
+                    </Box>
+                </Paper>
+                <Paper sx={{padding: "1em"}}>
+                    <Typography variant={"h6"}>SkipIntroTutorial</Typography>
+                    <Typography gutterBottom>チュートリアルをスキップします</Typography>
 
-            <Typography>cachepath</Typography>
-            <TextField size={"small"} variant="outlined" label={"DataPath"} />
-            <Button variant={"outlined"}>選択</Button>
+                    <Box sx={{display: "flex", gap: "1em", alignItems: "center"}}>
+                        <FormControlLabel control={<Checkbox defaultChecked/>} label="SkipIntroTutorial"/>
+                    </Box>
+                </Paper>
+                <Paper sx={{padding: "1em"}}>
+                    <Typography variant={"h6"}>ResetDash</Typography>
+                    <Typography gutterBottom>ダッシュメニューをリセットします</Typography>
 
-            <Typography>invisible</Typography>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Invisible" />
+                    <Box sx={{display: "flex", gap: "1em", alignItems: "center"}}>
+                        <FormControlLabel control={<Checkbox defaultChecked/>} label="ResetDash"/>
+                    </Box>
+                </Paper>
+                <Paper sx={{padding: "1em"}}>
+                    <Typography variant={"h6"}>DoNotAutoLoadHome</Typography>
+                    <Typography gutterBottom>Homeを自動で読み込まないようにします</Typography>
 
-            <Typography>screen</Typography>
-            <Typography>verbose</Typography>
-            <Typography>cloudprofile</Typography>
-            <Typography>loadassembly</Typography>
+                    <Box sx={{display: "flex", gap: "1em", alignItems: "center"}}>
+                        <FormControlLabel control={<Checkbox defaultChecked/>} label="DoNotAutoLoadHome"/>
+                    </Box>
+                </Paper>
+                <Paper sx={{padding: "1em"}}>
+                    <Typography variant={"h6"}>LoadAssembly</Typography>
+                    <Typography gutterBottom>追加のファイルを起動時にロードします</Typography>
 
-            <Typography>priorityworkers</Typography>
-            <Typography>BackgroundWorkerCount</Typography>
+                    <Box sx={{display: "flex", gap: "1em", alignItems: "center"}}>
+                        <TextField size={"small"} variant="outlined" label={"path"} sx={{flexGrow: 1}}/>
+                    </Box>
+                </Paper>
+            </Box>
 
-            <Typography>generateprecache</Typography>
+            {/*<Typography>logspath</Typography>*/}
+            {/*<TextField size={"small"} variant="outlined" label={"DataPath"} />*/}
+            {/*<Button variant={"outlined"}>選択</Button>*/}
 
-            <Typography>engienconfigfile: path</Typography>
-            <Typography>unsafeModeWhiteList</Typography>
-            <Typography>inputs</Typography>
-            <Typography>autoStartWorlds</Typography>
-            <Typography>autoJoinSessions</Typography>
-            <Typography>noUI</Typography>
-            <Typography>disableDesktop</Typography>
-            <Typography>pathWhitelist</Typography>
+            {/*<Typography>cachepath</Typography>*/}
+            {/*<TextField size={"small"} variant="outlined" label={"DataPath"} />*/}
+            {/*<Button variant={"outlined"}>選択</Button>*/}
 
-            <Typography>OutputDevice openvr oculus</Typography>
-            <Typography>StaticCamera360 </Typography>
-            <Typography>Screen360 </Typography>
+            {/*<Typography>invisible</Typography>*/}
+            {/*<FormControlLabel control={<Checkbox defaultChecked />} label="Invisible" />*/}
+
+            {/*<Typography>screen</Typography>*/}
+            {/*<Typography>verbose</Typography>*/}
+            {/*<Typography>cloudprofile</Typography>*/}
+            {/*<Typography>loadassembly</Typography>*/}
+
+            {/*<Typography>priorityworkers</Typography>*/}
+            {/*<Typography>BackgroundWorkerCount</Typography>*/}
+
+            {/*<Typography>generateprecache</Typography>*/}
+
+            {/*<Typography>engienconfigfile: path</Typography>*/}
+            {/*<Typography>unsafeModeWhiteList</Typography>*/}
+            {/*<Typography>inputs</Typography>*/}
+            {/*<Typography>autoStartWorlds</Typography>*/}
+            {/*<Typography>autoJoinSessions</Typography>*/}
+            {/*<Typography>noUI</Typography>*/}
+            {/*<Typography>disableDesktop</Typography>*/}
+            {/*<Typography>pathWhitelist</Typography>*/}
+            {/*<Typography>OutputDevice openvr oculus</Typography>*/}
+            {/*<Typography>StaticCamera360 </Typography>*/}
+            {/*<Typography>Screen360 </Typography>*/}
         </Container>
     )
 }

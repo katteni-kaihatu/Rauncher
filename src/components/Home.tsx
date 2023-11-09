@@ -3,11 +3,11 @@ import React from "react";
 
 const Home = () => {
     return (
-        <Container sx={{paddingTop: "1em"}}>
+        <Container sx={{paddingTop: "1em", overflowY: "scroll", height: "calc(100vh - 48px)", paddingBottom: "100px"}}>
             <Typography variant="h4" gutterBottom>
                 Resonite 更新情報
             </Typography>
-            <Box sx={{display: "flex", flexDirection: "column", gap:"1em"}}>
+            <Box sx={{display: "flex", flexDirection: "column", gap: "1em"}}>
                 <Card>
                     <CardContent>
                         <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
@@ -45,7 +45,38 @@ const Home = () => {
                         <Typography variant="body2">
                             First build that I made on my laptop while in the US!
 
-                            I'm sorry it took so long, it took a bit to sort out the build issues, go through our dependencies and update them, but now I'll be able to make builds way faster that everything is working again, plus we're a fair bit closer automating the builds completely in the future as well. There's been a lot of changes in the background too to cleanup and improve our build process, which you can't directly see, but that will make stuff easier for us going forward.
+                            I'm sorry it took so long, it took a bit to sort out the build issues, go through our
+                            dependencies and update them, but now I'll be able to make builds way faster that everything
+                            is working again, plus we're a fair bit closer automating the builds completely in the
+                            future as well. There's been a lot of changes in the background too to cleanup and improve
+                            our build process, which you can't directly see, but that will make stuff easier for us
+                            going forward.
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small" color="primary">
+                            続きを読む...
+                        </Button>
+                    </CardActions>
+                </Card>
+
+                <Card>
+                    <CardContent>
+                        <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                            2023/11/07 14:29
+                        </Typography>
+                        <Typography variant="h5" component="div">
+                            2023.11.7.274
+                        </Typography>
+                        <Typography variant="body2">
+                            First build that I made on my laptop while in the US!
+
+                            I'm sorry it took so long, it took a bit to sort out the build issues, go through our
+                            dependencies and update them, but now I'll be able to make builds way faster that everything
+                            is working again, plus we're a fair bit closer automating the builds completely in the
+                            future as well. There's been a lot of changes in the background too to cleanup and improve
+                            our build process, which you can't directly see, but that will make stuff easier for us
+                            going forward.
                         </Typography>
                     </CardContent>
                     <CardActions>
