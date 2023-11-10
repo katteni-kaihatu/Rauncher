@@ -43,7 +43,7 @@ const registerIpcHandler = () => {
 
   ipcMain.handle("launchResonite", (event, args) => {
     console.log("launchResonite")
-    process =  exec("\"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Resonite\\Resonite.exe\" -Screen -DoNotAutoLoadHome -ResetDash -SkipIntroTutorial -DataPath \"C:\\Data_Path\"", {cwd: "C:\\Data_Path"}, (err, stdout, stderr) => {
+    process =  exec("\"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Resonite\\Resonite.exe\" " + args.args, {cwd: "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Resonite\\"}, (err, stdout, stderr) => {
       if (err) {
         console.log(err)
         return

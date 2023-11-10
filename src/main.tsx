@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import App, {AppWrapper} from './App.tsx'
 import Splash from "./Splash.tsx";
 
 const splash = new URLSearchParams(window.location.search.slice(1)).has("splash")
@@ -13,7 +13,7 @@ if(splash) {
 } else {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-      <App/>
+      <AppWrapper/>
     </React.StrictMode>,
   )
 }

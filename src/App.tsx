@@ -4,16 +4,30 @@ import React from "react";
 import Home from "./components/Home.tsx";
 import LaunchSettings from "./components/LaunchSettings.tsx";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import {ResoniteProvider, useResonite} from "./context/resonite.tsx";
+import {DeleteForever} from "@mui/icons-material";
 
+export function AppWrapper() {
+    return (
+        <ResoniteProvider>
+            <App/>
+        </ResoniteProvider>
+    )
+}
 
 function App() {
+    const r = useResonite();
 
     const buttonHandler = () => {
         window.api.invoke("openDialog", "test")
     }
 
     const launchHandler = () => {
-        window.api.invoke("launchResonite")
+        console.log(r.args, r.dataPath)
+        window.api.invoke("launchResonite", {
+            args: r.args,
+            cwd: r.dataPath,
+        })
     }
 
     const closeHandler = () => {
@@ -52,11 +66,17 @@ function App() {
             {/*  <Button variant={"contained"} size={"large"} onClick={closeHandler}>終了</Button>*/}
             {/*</Container>*/}
 
-            <Box sx={{position: "fixed", bottom: 10, right: 10}}>
-                <Fab variant="extended" color={"primary"} onClick={launchHandler}>
-                    <RocketLaunchIcon sx={{mr: 1}}/>
-                    起動
-                </Fab>
+            <Box sx={{position: "fixed", bottom: 10, right: 20}}>
+                <Box sx={{display: "flex", flexDirection: "row", gap: "0.25em"}}>
+                    <Fab variant="extended" color={"primary"} onClick={launchHandler}>
+                        <RocketLaunchIcon sx={{mr: 1}}/>
+                        起動
+                    </Fab>
+                    <Fab variant="extended" color={"error"} onClick={closeHandler}>
+                        <DeleteForever sx={{mr: 1}}/>
+                        強制終了
+                    </Fab>
+                </Box>
             </Box>
         </>
     )
